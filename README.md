@@ -1,2 +1,2 @@
 # PyScripts
-'''home for python scripts use all the time for directory searches, file manipulations'''
+Python scripts commonly used for directory searches, file manipulations
