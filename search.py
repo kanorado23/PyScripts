@@ -1,4 +1,4 @@
-'''recursively search a directory for a file, and update a line of text'''
+'''recursively search a directory for a file, and update a line of text. can be used with txt, HTML, or XML files instead of BeautifulSoup'''
 
 import os
 
@@ -20,7 +20,7 @@ def updateSCM(line):
 
 def setPath(dirpath, filename):
     org_name = os.path.join(dirpath, filename) 
-    new_name = os.path.join(dirpath, filename.replace(match_file, replace_file)) #directions for the new name, replace pom.xml with pom2.xml
+    new_name = os.path.join(dirpath, filename.replace(match_file, replace_file)) #assignment of where to save and replace file
     with open(new_name, 'w') as output_file, open(org_name) as input_file: 
         for line in input_file:
             output_file.write(updateSCM(line))
@@ -30,7 +30,7 @@ def setPath(dirpath, filename):
 	os.rename(new_name, org_name)
   
 			
-for dirpath, dirs, files in os.walk(root_dir):
+for dirpath, dirs, files in os.walk(root_dir): #walk the directory
     for filename in files:
         if (filename == match_file):
-            setPath(dirpath, filename)
+            setPath(dirpath, filename) 
